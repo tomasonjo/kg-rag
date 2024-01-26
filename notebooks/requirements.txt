@@ -1,0 +1,5 @@
+requests
+pdfplumber
+neo4j
+openai==1.10.0
+python-dotenv
