@@ -1,4 +1,4 @@
-def chunk_text(text, chunk_size, overlap, split_on_whitespace_only):
+def chunk_text(text, chunk_size, overlap, split_on_whitespace_only=True):
     chunks = []
     index = 0
 
