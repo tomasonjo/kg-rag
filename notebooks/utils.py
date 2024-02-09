@@ -1,3 +1,11 @@
+import tiktoken
+import os
+from openai import OpenAI
+
+open_ai_client = OpenAI(
+api_key=os.environ.get("OPENAI_API_KEY"),
+)
+
 def chunk_text(text, chunk_size, overlap, split_on_whitespace_only=True):
     chunks = []
     index = 0
@@ -25,3 +33,27 @@ def chunk_text(text, chunk_size, overlap, split_on_whitespace_only=True):
             index += chunk_size
 
     return chunks
+
+def num_tokens_from_string(string: str, model: str = 'gpt-4') -> int:
+    """Returns the number of tokens in a text string."""
+    encoding = tiktoken.encoding_for_model(model)
+    num_tokens = len(encoding.encode(string))
+    return num_tokens
+
+
+def embed(texts, model="text-embedding-3-small"):
+    response = open_ai_client.embeddings.create(
+        input=texts,
+        model=model,
+    )
+    return list(map(lambda n: n.embedding, response.data))
+
+def chat(messages, model='gpt-4', temperature=0):
+    response = open_ai_client.chat.completions.create(
+    model=model,
+    temperature=temperature,
+    messages=messages)
+    return response.choices[0].message.content
+
+
+
