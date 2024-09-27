@@ -1,0 +1,241 @@
+1
+
+                                                                 EXHIBIT 10.4
+
+                 LICENSING AND WEB SITE HOSTING AGREEMENT
+
+     This Agreement is entered into on February 26, 1999, (the "Effective Date") by and between Mortgage Logic.com, Inc. ("Client"), with an address at Two Venture Plaza, 2 Venture, Irvine, California 92618 and TrueLink, Inc. ("TrueLink"), with an address at 3026 South Higuera, San Luis Obispo, California 93401.
+
+     WHEREAS, TrueLink is in the business of (i) developing and licensing interface software (the "Interface") to third parties; (ii) providing access to credit bureau information to third parties through the Interface; and (iii) providing certain technical support and programming customization services to users of the Interface substantially similar to those specifically enumerated herein (collectively "Support Services"); and
+
+     WHEREAS, TrueLink is licensed (or will be licensed) to provide access through the Interface to automated underwriting systems made available by certain third party investors or mortgage insurers (each such system is referred to hereafter as a "System", and all systems for which TrueLink is licensed to provide access are collectively referred to hereafter as the "Systems"); and
+
+     WHEREAS, Client desires to obtain access (for itself and for certain of Client's correspondent broker customers) for communications with, and use of, the Interface, including credit bureau information, by transmitting information and data to and receiving information and data from the Interface and such Support Services as Client may from time-to-time specify; and
+
+     WHEREAS, TrueLink is willing to provide to Client and to certain of Client's correspondent broker customers access to the Interface and various Support Services, subject to the terms and conditions of this Agreement.
+
+     NOW, THEREFORE, in consideration of the mutual promises herein and other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the parties agree as follows:
+
+     1.      DEFINITIONS.
+
+             a.      Browser. The term "Browser" refers to a program used to provide interactive, graphical access to sites on the World Wide Web.
+
+             b.      Client Content. The term "Client Content" means all text, words, names, likenesses, trademarks, logos, artwork, graphics, video, audio, HTML, JAVA or other coding, domain names, image maps, links, software applications, or other content that appear on, or are provided to TrueLink by or on behalf of Client for uploading to or downloading from, the Web Site.
+
+             c.      Client's Intellectual Property. The term "Client Intellectual Property" means, client's designs, customer lists, formulas, procedures, methods, apparatus, ideas, creations, improvements, works of authorship, materials, processes, inventions, techniques, data, know-how,
+
+2
+
+show-how, algorithms, programs, subroutines, tools, patents and patentable materials, copyrights and copyrightable materials and trade secrets.
+
+             d.      Credit Data. The term "Credit Data" means data of any borrower or loan applicant of Client or BNC Mortgage, Inc., or any of their affiliates, or any of their customers or brokers, provided that such data (i) consists only of raw credit data regarding the creditworthiness of such a borrower or loan applicant provided by third party credit repositories which currently consists of TransUnion Credit Information Services, Equifax Credit Information Services or Experien Information Services that is submitted, transmitted or in any way sent through the Interface and is the later of (I) the later of 31 days old from that date of receipt thereof by TrueLink or that date on which such data is "archived" pursuant to TrueLink's internal operating procedures consistently applied or (II) such date as may be agreed to between Client and Keith Guy provided that the parties acknowledge that such parties will discuss a date on which such data is similarly "archived" third party credit repositories as referred in this subparagraph (d) and (ii) is not combined, compared with or against, integrated or presented in any way with any Client Proprietary Information.
+
+             e.      Credit Reporting Agreement. The term "Credit Reporting Agreement" means the various agreements between TrueLink and each of TransUnion Credit Information Services, Experien Information Services and Equifax Credit Information Services pursuant to which TrueLink is provided raw credit data from time to time.
+
+             f.      TrueLink's Intellectual Property. The term "TrueLink Intellectual Property" means any or its intellectual property associated with the Interface, including, without limitation, designs, formulas, procedures, methods, apparatus, ideas, creations, improvements, works of authorship, materials, processes, inventions, techniques, data, know-how, show-how, algorithms, programs, subroutines, tools, patents and patentable materials, copyrights and copyrightable materials and trade secrets.
+
+
+
+
+
+             g.      Internet. The term "Internet" refers to the global network of computers using the TCP/IP protocol for communication.
+
+             h.      Web Site. The term "Web Site" refers to the World Wide Web site on which Client Content will appear.
+
+             i.      System Agreements. The term "System Agreements" means any agreement pursuant to which TrueLink is licensed to provide access to a System.
+
+     2.      LICENSE.
+
+             a.      Grant. TrueLink hereby grants to Client a non-exclusive license to use the Interface in the ordinary course of its business of the origination, underwriting, processing and funding of consumer finance receivables in accordance with this Agreement. Notwithstanding the foregoing, Client is not obligated to utilize the License and is free to acquire, develop, license or otherwise utilize any other hardware, software system, design, formula, procedure or trade secret to provide software and services similar to the ones provided by TrueLink hereunder, so long as such
+
+                                   -2-    3
+
+software or services do not infringe upon any of TrueLink's Intellectual Property. Nothing in the foregoing sentence is meant to affect in any way Client's confidentiality obligations pursuant to Section 10 herein.
+
+             b.      Scope. The license granted to Client pursuant to section 2(a) consists of the following rights:
+
+                     i.      Use and execution of the Interface on a compatible software platform (as such compatibility specifications may be issued by TrueLink from time to time); and
+
+                     ii.     Access to the Interface from multiple computer located at those sites listed on Exhibit "A." Client may amend Exhibit "A" by giving TrueLink written notice of the new sites.
+
+             c.      Term. The license shall last until this Agreement is terminated in accordance with section 12.
+
+             d.      Ownership. Notwithstanding the license granted under section 2.1, TrueLink retains all of its ownership and license rights in the Interface.
+
+     3.      HOSTING SERVICES. TrueLink will provide the following services to Client (the "Hosting Services"):
+
+             a.      Storage. ___ megabytes (MB) of disk space on TrueLink's servers will be used for storage of the Web Site and any data files associated with the Web Site.
+
+             b.      Response Time. TrueLink agrees to use reasonable commercial efforts, consistent with efforts provided to its other Clients to ensure reasonable response times for users accessing the Web Site. Reasonable response times shall be measured as follows: at a mutually agreed to time Client will conduct three tests of the time that it takes to load the home page of the Web Site from an IBM compatible computer (with a 16550 UART chip and an Intel 80586 300 MHZ processor running Windows 98 or NT and Microsoft Internet Explorer (with the cache turned off) accessing the Web Site over a phone line using a 28.8K baud modem (the results of these tests will be reported to TrueLink upon completion); reasonable response times means that at all times the time it takes to load the home page of the Web Site using a properly configured IBM compatible computer (as set forth above) accessing the Web Site over a phone line using a 28.8K baud modem shall in no event exceed twice the average of the three test response times.
+
+             c.      Bandwidth. ___ MB of monthly bandwidth (data transfer). In the event that the response time is not reasonable as determined under section 3.1 hereof, upon written notice from Client, TrueLink will, within a reasonable period of time, use reasonable commercial efforts to increase the bandwidth as necessary to make the response time reasonable.
+
+             d.      Availability. The Web Site will be available Client's to Internet users approximately 24 hours a day, seven days a week, normal maintenance and unforeseen hardware or communications problems excepted. To minimize server downtime during peak usage periods,
+
+                                   -3-    4
+
+TrueLink will take all reasonable actions to attempt to schedule routine maintenance between the hours of 8:00 p.m. to 5:00 a.m. pacific standard time.
+
+             e.      Access. Client will have access to Interface usage statistics and raw log files in real time via the Interface.
+
+             f.      Backups. TrueLink will backup the Interface and all data files associated with it at least once each day and will store the backup materials in a safe, secure location, suitable for magnetic media, and not at
+
+
+
+
+
+the same location as TrueLink's server.
+
+             g.      Internet Connection. TrueLink will maintain redundant connections to the Internet on diverse backbones.
+
+             h.      Domain Names. TrueLink shall provide assistance to Client in securing one or more domain names, sub-domain names or URL's associated therewith; provided that prior to TrueLink providing such assistance, Client shall engage in an appropriate trademark search reasonably satisfactory to TrueLink in order to establish that no domain name proposed by Client shall infringe upon the trademark, service mark, name, or logo of any third party. TrueLink will not be responsible for, or have any liability in connection with, the operation of the Web Site with respect to online commercial transactions, or for the transmission accuracy or completeness of any data or information to or from the Web Site or through the Interface by Client or Client's customers.
+
+             i.      Credit Bureau Information. TrueLink shall transmit such credit data to Client through the Interface as may be permitted under the Credit Repository Agreements and applicable law, each as in affect from time to tome, and in accordance with the certain Credit Bureau Agreement between TrueLink and Client dated of even date herewith. Subject to the foregoing, Client shall order TrueLink a credit report on each borrower for which an underwriting approval is requested through a System using the Interface. TrueLink makes no representation or warranty, and shall have no liability for the truth or completeness of any data so transmitted.
+
+     4.      SUPPORT SERVICES. For a period of not less than ____ months, TrueLink will make available to Client the services of at least one programmer identified by TrueLink and reasonably acceptable to Client to provide such Support Services as Client may reasonably request to TrueLink in writing for purposes of permitting Client to use the Interface in accordance with the License granted under Section 2 hereof and the other terms and conditions of this Agreement.
+
+     5.      COMPENSATION.
+
+             a.      Client will pay TrueLink's fees for requested Hosting Services and Support Services pursuant to the schedule of charges set forth on Exhibits "A" and "B" attached hereto, (but not less than $____ per month for the Hosting Services and $____ per month for Support Services). For any other services agreed to between the parties, Client will pay TrueLink fees which will be determined by the parties and will vary depending on the services utilized. TrueLink will provide Client with an invoice for the requested Hosting Services and Support Services and any other agreed-upon services on a monthly basis. Invoices will be paid within 15 days of receipt.
+
+                                   -4-    5
+
+     6.      DOCUMENTATION AND DISPUTES. Client will be provided upon request with documentation supporting the amount charged (other than the minimum monthly fees listed in Section 4) and will be entitled to contest any charge (other than the minimum monthly fees listed in Section 4), provided that Client timely pays all contested amounts. TrueLink agrees that the costs for any Hosting Services will not increase for a period of one year from the date of this Agreement and that rates charged for Hosting Services will not exceed that charged by TrueLink to any other party.
+
+     7.      UNSOLICITED COMMERCIAL E-MAIL.
+
+             Client shall not engage in the practice commonly known as "spamming" pursuant to the rights granted hereunder. This includes but is not limited to, the following: posting an article or advertisement to more than ten (10) news groups, forums, e-mail mailings lists or other similar groups or lists; or sending unsolicited mass e-mailings to more than twenty-five (25) e-mail users, if such unsolicited e-mailings provoke complaint.
+
+     8.      COVENANTS AND WARRANTIES OF CLIENT
+
+             a.      Compliance with Laws. Client will comply in all material respects with applicable state and federal consumer credit reporting, privacy and similar laws in connection with its use of the Interface.
+
+             b.      Notification. Client shall not represent that loan underwriting decisions related to loans originated by using the Interface are in any way made by TrueLink in communicating all loan approvals or denials in accordance with the foregoing.
+
+             c.      Limitation on Access. Client will use reasonable commercial efforts consistent with the protection of Client Proprietary Information to restrict access to the Interface to its officers, employees, and agents as may be approved by Client.
+
+             d.      Use of Credit Data during the term of this Agreement. Client hereby grants to TrueLink the nonexclusive worldwide right and license to use, distribute, disseminate, license, resell, exploit, upload, display, copy and store Credit Data subject to the limitations set forth in and in accordance with the Non-Competition Agreement.
+
+             e.      Representations of Client. Client represents and warrants: (a) Client is the owner, valid licensee, or authorized user of the Client Content, (b) to Client's actual knowledge the use of the Client Content shall not infringe the copyright, trade secret, trademark or other proprietary or intellectual property right of any third party, or constitute a definition,
+
+
+
+
+
+invasion of privacy, or violation of any right of publicity or other third party right, (c) the Client Content complies in all material respects with applicable federal and state laws regarding posting or transmitting data which is threatening, obscene, indecent, defamatory or in violation of report control was, and (d) to Client's actual knowledge Client Content shall be free at the time provided to TrueLink from viruses, worms, Trojan horses, and any other malicious code.
+
+                                   -5-    6
+
+             f.      Spamming. TrueLink reserves the right at any time to implement technical mechanisms to prevent Client engaging in illegal or obscene activity or in "spamming," TrueLink reserves all legal and equitable rights in enforcing this policy.
+
+     9.      TRUELINK WARRANTIES. TrueLink represents and warrants that the Interface and all related software (i) is designed to be used before, on and after January l, 2000; (ii) will operate before, on and after January 1, 2000, in the processing of dates, including without limitation calculating, comparing, indexing and sequencing; and (iii) will successfully transition from December 31, 1999, to January 1, 2000, without human intervention. At Client's request, TrueLink will provide sufficient evidence to demonstrate adequate testing of the Interface and all related software to meet the foregoing requirements. Client will provide reasonable access to TrueLink make any repairs necessary to comply with this section and make any upgrades specified by TrueLink to so comply, all at TrueLink's sole cost and expense, to the extent such upgrades were not previously requested by Client pursuant to previously requested Hosting Services or Support Services as set forth herein.
+
+     10.     CONFIDENTIALITY.
+
+             a.      Client acknowledges its responsibility to preserve the confidentiality of certain technology, information, and documentation embedded in the Interface and agrees to respect the confidential nature of the Interface. Notwithstanding anything to the contrary contained in this Agreement, it is understood and agreed that Client's confidentiality obligations relating to any System and any data, documentation, or other output from such System shall include those specified in any agreements between Client and the licensor of the System.
+
+             b.      TrueLink acknowledges its responsibilities to preserve the confidentiality of all results of the Support Services, Client's Intellectual Property, and subject to Section 8(d) herein Client Confidential Information.
+
+             c.      The parties hereto recognize that certain of the information and documentation previously provided or that may in the future be provided by a party to the other related to the matters covered by this Agreement includes privileged, confidential and proprietary information belonging to such party (a party's "Proprietary Information") which, if disclosed, could result in substantial and irreparable harm to such party. For information and documentation to qualify as a party's Proprietary Information, such information must either be marked "Confidential" or otherwise identified in writing as confidential at or prior to the time of its delivery to the other hereunder. Notwithstanding the foregoing, the following matters will automatically be deemed TrueLink Proprietary Information, whether or not specifically marked or designated as such: (i) any implementation information or user's guides for the Interface, (ii) any advance releases of TrueLink promotional material, (iii) information concerning TrueLink's business plans and strategies, and (iv) TrueLink's customer list. Notwithstanding the foregoing, the following matters will be automatically deemed Client Proprietary Information: Client's Intellectual Property, all results of the Hosting and Support Services, including any information or materials of any type or nature, tangible or intangible, disclosed by Client as a result of the TrueLink's relationship with Client relating to the business, products or technology or potential business, products or technology of Client, business plans, financial information, borrower and loan data technical specifications, design concepts,
+
+                                   -6-    7 technical information, customer lists, pricing information, marketing plans and other similar information pertaining to Client. Each agrees to treat all of the other Proprietary Information and all materials as strictly confidential, except to the extent otherwise agreed by the other in writing. Except to the extent otherwise agreed by both parties in writing, party further agrees to treat all of the other Proprietary Information and all materials which it prepares using or based on the other's Proprietary information or any portion thereof (the "Derivative Documentation") as strictly confidential, including, without limitation, any notes made and all reports prepared in connection with this Agreement.
+
+             d.      Notwithstanding the foregoing, the restrictions on disclosure and other obligations set forth above with respect to Proprietary Information or Derivative Documentation shall not apply when, and to the extent that such Proprietary Information or Derivative Documentation: (i) is or becomes generally available to the public through no fault of the receiving party; (ii) was previously known to the receiving party free of any obligation to keep it confidential; (iii) is subsequently disclosed to the receiving party by a third party who may transfer and disclose such information without restriction and free of any obligation to keep it confidential; (iv) is independently developed by the receiving party or a third party without reference to or any use of the
+
+
+
+
+
+disclosing party's proprietary information; or (v) is required to be disclosed by the receiving party as a matter of law, provided that the receiving party uses all reasonable efforts to provide the disclosing party with at least ten days' prior notice of such disclosure.
+
+     11.     STANDARD OF CARE. TrueLink shall perform the Hosting and Support Services and any other agreed-upon services for Client with the same degree of care, skill and prudence customarily exercised by it for its own operations.
+
+     12.     INDEMNITY.
+
+             a.      Client shall indemnify and hold TrueLink, its affiliates, directors, officers, employees, agents and licensors harmless from and against all claims, actions, expenses, losses, and liabilities, including reasonable attorneys' fees, arising from or relating to the following: (i) any claim arising out of any breach by Client of this Agreement, (ii) any claim or demand resulting from any act or omission by Client or any customer of Client granted access to the Interface by Client which constitutes a breach of or default by TrueLink under any System Agreement or Credit Repository Agreement, which breach or default has either not been cured or cannot be cured within the applicable cure period and the consequences of which is that TrueLink will lose material rights it has pursuant to said Agreements or a violation of any state or federal law, rule or regulation (iii) any claim arising out of or relating to the Web Site or Client Content (including, but not limited to, any claim resulting from any content posted to the Web Site by Client or Client's employees, agent or any customer of Client granted access to the Interface by Client), without regard to any knowledge limitation or qualification that may be contained in this Agreement, and (iv) injury or damage to person or property caused by a product, service, or information, whether or not defective, that is sold, distributed or transmitted from the Web Site.
+
+             b.      TrueLink shall indemnify and hold Client harmless, its affiliates, directors, officers, employees, agents and licensors harmless from and against all claims, actions, expenses, losses, and liabilities, including reasonable attorneys' fees, arising from or relating to any
+
+                                   -7-    8
+
+claim arising out of any breach by TrueLink of this Agreement or any failure by TrueLink in the performance of any of its obligations or agreements hereunder.
+
+     EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, TRUELINK DISCLAIMS ANY AND ALL EXPENSES WARRANTIES, WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE AND IMPLIED WARRANTIES OF MERCHANTABILITY OR FOR ANY MATTER RELATING TO THE ACCURACY OR COMPLETENESS, OR TIMING OF TRANSMISSION OF ANY DATA SUBMITTED THROUGH THE INTERFACE OR TO OR FROM THE WEB SITE.
+
+     IN NO EVENT SHALL TRUELINK'S LIABILITY FOR ANY MATTER ARISING UNDER OR RELATED TO SECTION 3, 4, 7 AND 11 THIS AGREEMENT (OTHER THAN DUE TO A BREACH RESULTING FROM TRUELINK'S GROSS NEGLIGENCE OR WILLFUL MISCONDUCT) EXCEED THE TOTAL COMPENSATION PAID FOR HOSTING AND SUPPORT SERVICES OVER THE IMMEDIATELY PRECEDING 12 MONTHS PERIOD.
+
+             13.     TERM OF AGREEMENT. This Agreement will take effect on the Effective Date and remain in effect for a period of 1 year; provided, that Sections 2 and 3 level shall terminate promptly upon (a) any action or omission by Client or any of its customers which constitutes a breach of or default by TrueLink under any System Agreement or Credit Repository Agreement, which breach or default has either not been cured or cannot be cured within the applicable cure period and the consequences of which is that TrueLink will lose material rights it had pursuant to said Agreements or (b) any violations or breach by Client of Sections 8a - 8c. This Agreement shall renew automatically thereafter for successive one year periods until terminated pursuant to Section 12 herein or unless either Client or TrueLink deliver to the other written notice of intent not to renew no later than thirty (30) days prior to the end of said year. If Client decides to discontinue its Hosting Service, Client is responsible for arranging for a new name server within 30 days. In case of discontinued Service, Client shall retain full ownership of all domains associated with Client and Client Content. If Client decides to discontinue Hosting Service, Client is responsible for arranging for a new hosting environment within 60 days.
+
+             14.     TERMINATION. Subject to Section 4 hereof, TrueLink will continue to provide the requested Hosting Services and Support Services until the last day of the month following the month in which Client provides TrueLink with a written notice of its election to terminate this Agreement.
+
+             15.     ASSIGNMENT OR TRANSFER. Neither party shall assign or transfer any of its rights under this Agreement without the prior written approval of the other party, except no such approval shall be required for an assignment to a financially responsible affiliate.
+
+             16.     MODIFICATIONS. This Agreement may be amended at any time and from time to time, but any amendment must be in writing and signed by the party to be charged.
+
+             17.     WAIVER. No waiver of any provision of this Agreement will be valid unless it is in writing and signed by the party against whom it is sought to be enforced. No waiver at any time of any provision of this Agreement will be deemed a waiver of any other provision of this
+
+
+
+
+
+                                   -8-    9 Agreement at that time or a waiver of that or any other provision of this Agreement at any other time.
+
+             18.     UNDEFINED TERMS. Terms that are not specifically defined in this Agreement are used as set forth in the California Uniform Commercial Code.
+
+             19.     POWER AND AUTHORITY. Each party represents to the other that it has all necessary power and authority to enter into and perform its obligations under this Agreement. The individuals executing this Agreement on behalf of each party represent that they have authority to do so.
+
+             20.     NOTICES. All notices required or permitted to be sent under this Agreement shall be in writing and shall be sent to the parties at the addresses set forth in the preamble of this Agreement, or to such other addresses and to such other individuals of which either party may notify the other in a notice which complies with the provisions of this subsection. All notices will be deemed given (i) when delivered by hand, (ii) one (l) day after delivery to a reputable overnight carrier, or (iii) three (3) days after placement in first-class mail, postage prepaid, return receipt requested.
+
+             21.     CUMULATIVE RIGHTS. The rights and remedies of the parties hereunder are cumulative and are in addition to, and not in lieu of, all rights and remedies available at law and in equity.
+
+             22.     CAPTIONS. The captions in this Agreement are included for convenience of reference only and will not be construed to define or limit any of the provisions contained herein.
+
+             23.     JOINT DRAFTING AND NEUTRAL CONSTRUCTION. This Agreement is a negotiated document and shall be deemed to have been drafted jointly by the Parties, and no rule of construction or interpretation shall apply against any particular party based on a contention that the Agreement was drafted by one of the Parties including, but not limited to California Civil Code section 1654, the provisions of which are hereby waived. This Agreement shall be construed and interpreted in a neutral manner.
+
+             24.     VALIDITY OF AGREEMENT. If any term, provision, covenant, or condition of this Agreement is held by a court of competent jurisdiction to be invalid or unenforceable, the rest of the Agreement shall remain in full force and effect and shall in no way be affected or invalidated. The provisions of Sections 1 and 5 through 30 this Agreement will survive the expiration or termination of this Agreement.
+
+             25.     ENTIRE AGREEMENT. This Agreement, including all Exhibits, contains the entire agreement of the Parties relating to the rights granted and obligations assumed herein. Any oral representations or modifications concerning this instrument shall be of no force or effect unless contained in a subsequent written modification signed by the party to be charged.
+
+                                   -9-    10
+
+             26.     APPLICABLE LAW. This Agreement shall be governed, construed and interpreted in accordance with the laws of the State of California (without respect to principles of conflicts of law).
+
+             27.     VENUE. Any and all disputes between the parties that cannot be settled by mutual agreement shall be resolved solely and exclusively in the state or federal courts located within San Luis Obispo County, California, and each party consents to the jurisdiction of such courts and irrevocably waives any objections thereto, including without limitation, on the basis of improper venue or forum non conveniens.
+
+             28.     ATTORNEY FEES AND COSTS. In any action brought under this Agreement, the prevailing party shall be entitled to recover its actual costs and attorney fees pursuant to California Civil Code section 1717 and all other litigation costs, including expert witness fees, and all actual attorney fees and litigation costs incurred in connection with the enforcement of a judgment arising from such action or proceeding. The provisions of the preceding sentence shall be severable from the provisions of this Agreement and shall survive the entry of any such judgment.
+
+             29.     NO PARTNERSHIP OR JOINT VENTURE. The parties hereto understand and agree that TrueLink is furnishing its services and the Interface to Client on its own behalf and not on behalf of the System providers. Client understands and agrees that authorization to use the System must be obtained from the System providers. In no event will TrueLink offer the Systems without such authorization from the System providers. Nothing contained herein will be construed to create any association, partnership, joint venture or any agency relationship between the parties hereto.
+
+             30.     FORCE MAJEURE. TrueLink will be excused from delays in performing or from failing to perform its obligations under this Agreement to the extent the delays or failures result from causes beyond the reasonable control or TrueLink. However, to be excused from delay or failure to perform, TrueLink must act diligently to remedy the cause of the delay or failure.
+
+Dated:                                   TRUELINK, INC.
+
+
+
+
+
+   --------------------------
+
+                                     By                                            -------------------------------------                                            Title:
+
+Dated:                                  MORTGAGE LOGIC.COM, INC.       --------------------------
+
+                                     By                                            -------------------------------------                                            Title:
+
+                                   -10-    11
+
+                                Exhibit "A"
+
+                       Charges for Hosting Services
+
+ [To be agreed to by and between TrueLink and Client prior to the Closing]
+
+                                   -11-    12
+
+                                Exhibit "B"
+
+                       Charges for Support Services
+
+ [To be agreed to by and between TrueLink and client prior to the Closing]
+
+                                   -12-
