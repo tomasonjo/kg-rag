@@ -55,6 +55,7 @@ prompt_template = {
     construct a Cypher statement.
     Do not include any text except the generated Cypher statement.
     ONLY RESPOND WITH CYPHER, NO CODEBLOCKS.
+    Make sure to name RETURN variables as requested in the user question.
     """
     },
     "dynamic": {
