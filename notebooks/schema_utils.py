@@ -1,6 +1,7 @@
 import neo4j
 from neo4j.exceptions import ClientError
 from typing import Any, Optional
+from utils import chat
 
 NODE_PROPERTIES_QUERY = """
 CALL apoc.meta.data()
@@ -74,8 +75,7 @@ def get_schema(
 def get_structured_schema(driver: neo4j.Driver) -> dict[str, Any]:
     node_labels_response = driver.execute_query(NODE_PROPERTIES_QUERY)
     node_properties = [
-        data["output"]
-        for data in [r.data() for r in node_labels_response.records]
+        data["output"] for data in [r.data() for r in node_labels_response.records]
     ]
 
     rel_properties_query_response = driver.execute_query(REL_PROPERTIES_QUERY)
@@ -84,11 +84,9 @@ def get_structured_schema(driver: neo4j.Driver) -> dict[str, Any]:
         for data in [r.data() for r in rel_properties_query_response.records]
     ]
 
-
     rel_query_response = driver.execute_query(REL_QUERY)
     relationships = [
-        data["output"]
-        for data in [r.data() for r in rel_query_response.records]
+        data["output"] for data in [r.data() for r in rel_query_response.records]
     ]
 
     return {
