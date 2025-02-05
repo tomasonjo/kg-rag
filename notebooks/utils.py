@@ -7,6 +7,7 @@ from openai import OpenAI
 neo4j_driver = GraphDatabase.driver(
     os.environ.get("NEO4J_URI"),
     auth=(os.environ.get("NEO4J_USERNAME"), os.environ.get("NEO4J_PASSWORD")),
+    notifications_min_severity="OFF"
 )
 
 open_ai_client = OpenAI(
