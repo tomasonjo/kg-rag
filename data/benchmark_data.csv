@@ -1,0 +1,20 @@
+question;cypher
+How many movies are there?;MATCH (m:Movie) RETURN count(*) AS movies
+Who acted in the most movies?;"MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+RETURN p.name, COUNT(m) AS movieCount
+ORDER BY movieCount DESC
+LIMIT 1"
+Which movies released between 1990 and 2000 have more than 5000 votes?;MATCH (m:Movie) WHERE m.released >= 1990 AND m.released <= 2000 AND m.votes > 5000 RETURN m.title, m.released, m.votes
+Who has the longest name among all actors?;MATCH (p:Person)-[:ACTED_IN]->(:Movie) RETURN p.name AS name ORDER BY size(p.name) DESC LIMIT 1
+List people born before 1940.;MATCH (p:Person) WHERE p.born < 1940 RETURN p.name
+Who was born in 1965 and has directed a movie?;MATCH (p:Person)-[:DIRECTED]->(m:Movie) WHERE p.born = 1965 RETURN p.name
+Who acted in Top Gun?;"MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: ""Top Gun""})
+RETURN p.name
+"
+"List the movies with a title starting with ""The""";"MATCH (m:Movie) WHERE m.title STARTS WITH ""The"" RETURN m.title"
+How many movies did Tom Hanks appear in?;"MATCH (p:Person {name: ""Tom Hanks""})-[:ACTED_IN]->(m:Movie)
+RETURN count(m) AS numberOfMovies
+"
+Who played in the Matrix?;"MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: ""The Matrix""})
+RETURN p.name
+"
