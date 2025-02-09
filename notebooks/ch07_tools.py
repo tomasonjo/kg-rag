@@ -191,4 +191,4 @@ def get_answer(input: str):
         model="gpt-4o",
     )
 
-    return llm_response
+    return llm_response, answers
