@@ -4,14 +4,14 @@ from text2cypher import Text2Cypher
 answer_given_description = {
     "type": "function",
     "function": {
-        "name": "answer_given",
-        "description": "If a complete answer to the question already is provided in the conversation, use this tool to extract it.",
+        "name": "respond",
+        "description": "If the conversation already contains a complete answer to the question, use this tool to extract it. Additionally, if the user engages in small talk, use this tool to remind them that you can only answer questions about movies and their cast.",
         "parameters": {
             "type": "object",
             "properties": {
                 "answer": {
                     "type": "string",
-                    "description": "The answer to the question",
+                    "description": "Respond directly with the answer",
                 }
             },
             "required": ["answer"],
@@ -49,9 +49,11 @@ def text2cypher(question: str):
     t2c = Text2Cypher(neo4j_driver)
     t2c.set_prompt_section("question", question)
     cypher = t2c.generate_cypher()
-    records, _, _ = neo4j_driver.execute_query(cypher)
-    return [record.data() for record in records]
-
+    try:
+        records, _, _ = neo4j_driver.execute_query(cypher)
+        return [record.data() for record in records]
+    except Exception as e:
+        return [f"{cypher} cause an error: {e}"]
 
 movie_info_by_title_description = {
     "type": "function",

@@ -37,35 +37,6 @@ def query_rewrite(input: str) -> list[str]:
             print("Error decoding JSON")
         return []
 
-query_update_prompt = f"""
-    You are an expert at updating questions to make the them ask for one thing only, more atomic, specific and easier to find the answer for.
-    You do this by filling in missing information in the question, with the extra information provided to you in previous answers. 
-    
-    You respond with the updated question that has all information in it.
-    Only edit the question if needed. If the original question already is atomic, specific and easy to answer, you keep the original.
-    Do not ask for more information than the original question. Only rephrase the question to make it more complete.
-    Today is {datetime.now()}
-    
-    JSON template to use:
-    {{
-        "question": "question1"
-    }}
-"""
-
-def query_update(input: str, answers: list[any]) -> str: 
-    messages = [
-        {"role": "system", "content": query_update_prompt},
-        *answers,
-        {"role": "user", "content": f"The user question to optionally rewrite: '{input}'"},
-    ]
-    config = {"response_format": {"type": "json_object"}}
-    output = chat(messages, model = "gpt-4o", config=config, )
-    try:
-        return json.loads(output)["question"]
-    except json.JSONDecodeError:
-        print("Error decoding JSON")
-    return []
-
 tool_picker_prompt = """
     Your job is to chose the right tool needed to respond to the user question. 
     The available tools are provided to you in the prompt.
@@ -85,7 +56,7 @@ tools = {
         "description": ch05_tools.text2cypher_description,
         "function": ch05_tools.text2cypher
     },
-    "answer_given": {
+    "respond": {
         "description": ch05_tools.answer_given_description,
         "function": ch05_tools.answer_given
     }
@@ -122,9 +93,8 @@ def route_question(question: str, tools: dict[str, any], answers: list[dict[str,
 def handle_user_input(input: str, answers: list[dict[str, str]] = []):
     atomic_questions = query_rewrite(input)
     for question in atomic_questions:
-        updated_question = question#query_update(question, answers)
-        response  = route_question(updated_question, tools, answers)
-        answers.append({"role": "assistant", "content": f"For the question: '{updated_question}', we have the answer: '{json.dumps(response)}'"})
+        response  = route_question(question, tools, answers)
+        answers.append({"role": "assistant", "content": f"For the question: '{question}', we have the answer: '{json.dumps(response)}'"})
     return answers
 
 answer_critique_prompt = f"""
@@ -132,9 +102,9 @@ You specialize in evaluating whether a given response sufficiently addresses the
 
 ### Task:
 - The user will provide a **question** and a corresponding **answers** from the chat history.
-- Your job is to assess whether the answer adequately addresses the question.
-- If you notice that the answer could be improved by adding some details or clarifications, feel free to suggest a few follow-up questions. These follow-up questions can be a bit more general or flexible, focusing on key areas that might need extra explanation.
-- If the answer is already clear and sufficiently complete, simply return an empty list.
+- Your job is to assess whether the provided information in the conversation history adequately addresses the question.
+- If the information is already clear and sufficiently complete, simply return an empty list.
+- If the question isn't related to movies and or is smalltalk, there is no need for follow up questions.
 
 ### Expected Output (JSON format):
 ```json
@@ -155,7 +125,7 @@ def critique_answers(question: str, answers: list[dict[str, str]]) -> list[str]:
         *answers,
         {
             "role": "user",
-            "content": f"Original user question: {question}. Does the answer include all the necessary details, or do we need to request further information?"
+            "content": f"Can we respond to this message: {question}"
 ,
         },
     ]
@@ -178,7 +148,6 @@ main_prompt = """
 def get_answer(input: str):
     answers = handle_user_input(input)
     critique = critique_answers(input, answers)
-
     if critique:
         answers = handle_user_input(" ".join(critique), answers)
 

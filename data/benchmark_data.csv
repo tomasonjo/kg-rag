@@ -1,4 +1,6 @@
 question;cypher
+Hello;"RETURN ""greeting and reminder it can only answer questions related to movies"""
+What can you do?;"RETURN ""answer questions related to movies and their cast."""
 How many movies are there?;MATCH (m:Movie) RETURN count(*) AS movies
 Who acted in the most movies?;"MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
 RETURN p.name, COUNT(m) AS movieCount
@@ -18,3 +20,4 @@ RETURN count(m) AS numberOfMovies
 Who played in the Matrix?;"MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: ""The Matrix""})
 RETURN p.name
 "
+Which movie has the most Oscars?;"RETURN ""This information is missing"""
