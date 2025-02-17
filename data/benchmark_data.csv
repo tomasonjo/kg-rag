@@ -14,6 +14,10 @@ Who was born in 1965 and has directed a movie?;MATCH (p:Person)-[:DIRECTED]->(m:
 Who acted in Top Gun?;"MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: ""Top Gun""})
 RETURN p.name
 "
+Who acted in top gun?;"MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: ""Top Gun""})
+RETURN p.name"
+In which movies did Tom Hanks act in?;"MATCH (p:Person {name: ""Tom Hanks""})-[:ACTED_IN]->(m:Movie) RETURN m.title"
+In which movies did tom Hanks act in?;"MATCH (p:Person {name: ""Tom Hanks""})-[:ACTED_IN]->(m:Movie) RETURN m.title"
 "List the movies with a title starting with ""The""";"MATCH (m:Movie) WHERE m.title STARTS WITH ""The"" RETURN m.title"
 How many movies did Tom Hanks appear in?;"MATCH (p:Person {name: ""Tom Hanks""})-[:ACTED_IN]->(m:Movie)
 RETURN count(m) AS numberOfMovies
