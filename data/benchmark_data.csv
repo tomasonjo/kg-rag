@@ -1,6 +1,7 @@
 question;cypher
 Hello;"RETURN ""greeting and reminder it can only answer questions related to movies"""
 What can you do?;"RETURN ""answer questions related to movies and their cast."""
+What is the weather like in Spain?;"RETURN ""irrelevant question as we can answer questions related to movies and their cast only."""
 How many movies are there?;MATCH (m:Movie) RETURN count(*) AS movies
 Who acted in the most movies?;"MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
 RETURN p.name, COUNT(m) AS movieCount
