@@ -257,7 +257,7 @@ def parse_extraction_output(output_str, record_delimiter=None, tuple_delimiter=N
 
 import_nodes_query = """
 MERGE (b:Book {id: $book_id})
-MERGE (b)-[:HAS_CHUNK]->(c:Chunk {id: $chunk_id})
+MERGE (b)-[:HAS_CHUNK]->(c:__Chunk__ {id: $chunk_id})
 SET c.text = $text
 WITH c
 UNWIND $data AS row
@@ -479,7 +479,7 @@ def extract_json(input: str):
 
 import_community_query = """
 UNWIND $data AS row
-MERGE (c:Community {communityId: row.communityId})
+MERGE (c:__Community__ {communityId: row.communityId})
 SET c.title = row.community.title,
     c.summary = row.community.summary,
     c.rating = row.community.rating,
@@ -489,3 +489,204 @@ UNWIND row.nodes AS node
 MERGE (n:__Entity__ {name: node})
 MERGE (n)-[:IN_COMMUNITY]->(c)
 """
+
+def import_entity_summary(neo4j_driver, entity_information):
+    neo4j_driver.execute_query("""
+    UNWIND $data AS row
+    MATCH (e:__Entity__ {name: row.entity})
+    SET e.summary = row.summary
+    """, data=entity_information)
+    
+    # If there was only 1 description use that
+    neo4j_driver.execute_query("""
+    MATCH (e:__Entity__)
+    WHERE size(e.description) = 1
+    SET e.summary = e.description[0]
+    """)
+
+def import_rels_summary(neo4j_driver, rel_summaries):
+    neo4j_driver.execute_query("""
+    UNWIND $data AS row
+    MATCH (s:__Entity__ {name: row.source}), (t:__Entity__ {name: row.target})
+    MERGE (s)-[r:SUMMARIZED_RELATIONSHIP]-(t)
+    SET r.summary = row.summary
+    """, data=rel_summaries)
+    
+    # If there was only 1 description use that
+    neo4j_driver.execute_query("""
+    MATCH (s:__Entity__)-[e:RELATIONSHIP]-(t:__Entity__)
+    WHERE NOT (s)-[:SUMMARIZED_RELATIONSHIP]-(t)
+    MERGE (s)-[r:SUMMARIZED_RELATIONSHIP]-(t)
+    SET r.summary = e.description
+    """)
+
+community_info_query = """MATCH (e:__Entity__)
+WHERE e.louvain IS NOT NULL
+WITH e.louvain AS louvain, collect(e) AS nodes
+WHERE size(nodes) > 1
+CALL apoc.path.subgraphAll(nodes[0], {
+	whitelistNodes:nodes
+})
+YIELD relationships
+RETURN louvain AS communityId,
+       [n in nodes | {id: n.name, description: n.summary, type: [el in labels(n) WHERE el <> '__Entity__'][0]}] AS nodes,
+       [r in relationships | {start: startNode(r).name, type: type(r), end: endNode(r).name, description: r.description}] AS rels"""
+
+MAP_SYSTEM_PROMPT = """
+---Role---
+
+You are a helpful assistant responding to questions about data in the tables provided.
+
+
+---Goal---
+
+Generate a response consisting of a list of key points that responds to the user's question, summarizing all relevant information in the input data tables.
+
+You should use the data provided in the data tables below as the primary context for generating the response.
+If you don't know the answer or if the input data tables do not contain sufficient information to provide an answer, just say so. Do not make anything up.
+
+Each key point in the response should have the following element:
+- Description: A comprehensive description of the point.
+- Importance Score: An integer score between 0-100 that indicates how important the point is in answering the user's question. An 'I don't know' type of response should have a score of 0.
+
+The response should be JSON formatted as follows:
+{{
+    "points": [
+        {{"description": "Description of point 1 [Data: Reports (report ids)]", "score": score_value}},
+        {{"description": "Description of point 2 [Data: Reports (report ids)]", "score": score_value}}
+    ]
+}}
+
+The response shall preserve the original meaning and use of modal verbs such as "shall", "may" or "will".
+
+Points supported by data should list the relevant reports as references as follows:
+"This is an example sentence supported by data references [Data: Reports (report ids)]"
+
+**Do not list more than 5 record ids in a single reference**. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.
+
+For example:
+"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (2, 7, 64, 46, 34, +more)]. He is also CEO of company X [Data: Reports (1, 3)]"
+
+where 1, 2, 3, 7, 34, 46, and 64 represent the id (not the index) of the relevant data report in the provided tables.
+
+Do not include information where the supporting evidence for it is not provided.
+
+
+---Data tables---
+
+{context_data}
+
+---Goal---
+
+Generate a response consisting of a list of key points that responds to the user's question, summarizing all relevant information in the input data tables.
+
+You should use the data provided in the data tables below as the primary context for generating the response.
+If you don't know the answer or if the input data tables do not contain sufficient information to provide an answer, just say so. Do not make anything up.
+
+Each key point in the response should have the following element:
+- Description: A comprehensive description of the point.
+- Importance Score: An integer score between 0-100 that indicates how important the point is in answering the user's question. An 'I don't know' type of response should have a score of 0.
+
+The response shall preserve the original meaning and use of modal verbs such as "shall", "may" or "will".
+
+Points supported by data should list the relevant reports as references as follows:
+"This is an example sentence supported by data references [Data: Reports (report ids)]"
+
+**Do not list more than 5 record ids in a single reference**. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.
+
+For example:
+"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (2, 7, 64, 46, 34, +more)]. He is also CEO of company X [Data: Reports (1, 3)]"
+
+where 1, 2, 3, 7, 34, 46, and 64 represent the id (not the index) of the relevant data report in the provided tables.
+
+Do not include information where the supporting evidence for it is not provided.
+
+The response should be JSON formatted as follows:
+{{
+    "points": [
+        {{"description": "Description of point 1 [Data: Reports (report ids)]", "score": score_value}},
+        {{"description": "Description of point 2 [Data: Reports (report ids)]", "score": score_value}}
+    ]
+}}
+"""
+
+REDUCE_SYSTEM_PROMPT = """
+---Role---
+
+You are a helpful assistant responding to questions about a dataset by synthesizing perspectives from multiple analysts.
+
+
+---Goal---
+
+Generate a response of the target length and format that responds to the user's question, summarize all the reports from multiple analysts who focused on different parts of the dataset.
+
+Note that the analysts' reports provided below are ranked in the **descending order of importance**.
+
+If you don't know the answer or if the provided reports do not contain sufficient information to provide an answer, just say so. Do not make anything up.
+
+The final response should remove all irrelevant information from the analysts' reports and merge the cleaned information into a comprehensive answer that provides explanations of all the key points and implications appropriate for the response length and format.
+
+Add sections and commentary to the response as appropriate for the length and format. Style the response in markdown.
+
+The response shall preserve the original meaning and use of modal verbs such as "shall", "may" or "will".
+
+The response should also preserve all the data references previously included in the analysts' reports, but do not mention the roles of multiple analysts in the analysis process.
+
+**Do not list more than 5 record ids in a single reference**. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.
+
+For example:
+
+"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (2, 7, 34, 46, 64, +more)]. He is also CEO of company X [Data: Reports (1, 3)]"
+
+where 1, 2, 3, 7, 34, 46, and 64 represent the id (not the index) of the relevant data record.
+
+Do not include information where the supporting evidence for it is not provided.
+
+
+---Target response length and format---
+
+{response_type}
+
+
+---Analyst Reports---
+
+{report_data}
+
+
+---Goal---
+
+Generate a response of the target length and format that responds to the user's question, summarize all the reports from multiple analysts who focused on different parts of the dataset.
+
+Note that the analysts' reports provided below are ranked in the **descending order of importance**.
+
+If you don't know the answer or if the provided reports do not contain sufficient information to provide an answer, just say so. Do not make anything up.
+
+The final response should remove all irrelevant information from the analysts' reports and merge the cleaned information into a comprehensive answer that provides explanations of all the key points and implications appropriate for the response length and format.
+
+The response shall preserve the original meaning and use of modal verbs such as "shall", "may" or "will".
+
+The response should also preserve all the data references previously included in the analysts' reports, but do not mention the roles of multiple analysts in the analysis process.
+
+**Do not list more than 5 record ids in a single reference**. Instead, list the top 5 most relevant record ids and add "+more" to indicate that there are more.
+
+For example:
+
+"Person X is the owner of Company Y and subject to many allegations of wrongdoing [Data: Reports (2, 7, 34, 46, 64, +more)]. He is also CEO of company X [Data: Reports (1, 3)]"
+
+where 1, 2, 3, 7, 34, 46, and 64 represent the id (not the index) of the relevant data record.
+
+Do not include information where the supporting evidence for it is not provided.
+
+
+---Target response length and format---
+
+{response_type}
+
+Add sections and commentary to the response as appropriate for the length and format. Style the response in markdown.
+"""
+
+def get_map_system_prompt(context):
+    return MAP_SYSTEM_PROMPT.format(context_data=context)
+
+def get_reduce_system_prompt(report_data, response_type: str = "multiple paragraphs"):
+    return REDUCE_SYSTEM_PROMPT.format(report_data=report_data, response_type=response_type)
