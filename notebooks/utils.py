@@ -59,7 +59,7 @@ def embed(texts, model="text-embedding-3-small"):
     return list(map(lambda n: n.embedding, response.data))
 
 
-def chat(messages, model="gpt-4", temperature=0, config={}):
+def chat(messages, model="gpt-4o", temperature=0, config={}):
     response = open_ai_client.chat.completions.create(
         model=model,
         temperature=temperature,
@@ -69,7 +69,7 @@ def chat(messages, model="gpt-4", temperature=0, config={}):
     return response.choices[0].message.content
 
 
-def tool_choice(messages, model="gpt-4", temperature=0, tools=[], config={}):
+def tool_choice(messages, model="gpt-4o", temperature=0, tools=[], config={}):
     response = open_ai_client.chat.completions.create(
         model=model,
         temperature=temperature,
